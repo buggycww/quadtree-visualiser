@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build: quadtree viz",
+            "type": "shell",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "src/main.cpp",
+                "src/QuadTree.cpp",
+                "src/Visualizer.cpp",
+                "-I", "src",
+                "-I", "C:/msys64/ucrt64/include",
+                "-o", "build/viz.exe",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "detail": "Builds src/*.cpp into build/viz.exe with SFML"
+        }
+    ]
+}
