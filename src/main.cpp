@@ -4,7 +4,9 @@
 #include "AABB.h"
 #include "Point.h"
 #include "QuadTree.h"
+#include "Visualizer.h"
 
+#pragma region tests
 void TestAABB() {
     AABB box{ 0, 0, 100, 100 };
 
@@ -158,11 +160,25 @@ void testQuadTreeRemove() {
     std::cout << "Phase 5: remove + clear tests passed.\n";
 }
 
+// int main() {
+//     // TestAABB();
+//     // testQuadTreeInsertAndSubdiv();
+//     // testQuadTreeQuery();
+//     testQuadTreeRemove();
+
+//     return 0;
+// }
+#pragma endregion
+
 int main() {
-    // TestAABB();
-    // testQuadTreeInsertAndSubdiv();
-    // testQuadTreeQuery();
-    testQuadTreeRemove();
+    AABB world{ 0.f, 0.f, 1000.f, 800.f };
+    QuadTree tree(world, 4, 6);
+
+    Visualizer viz(tree, world, 1100, 900);
+    viz.run();
 
     return 0;
 }
+
+// to build: g++ -std=c++17 -g -Wall -Wextra src/main.cpp src/QuadTree.cpp src/Visualizer.cpp -I src -IC:/msys64/ucrt64/include -o viz.exe -lsfml-graphics -lsfml-window -lsfml-system
+// to run: .\viz.exe
