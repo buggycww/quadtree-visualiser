@@ -7,7 +7,7 @@ subdivision, insertion, removal, and range queries.
 
 ## Overview
 
-Three components, each in its own file:
+Four main components:
 
 | File | Purpose |
 |---|---|
